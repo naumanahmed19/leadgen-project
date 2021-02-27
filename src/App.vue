@@ -1,10 +1,11 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+
+     <Home />
+  
 </template>
 
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import Home from './components/Home.vue'
 
 // This starter template is using Vue 3 experimental <script setup> SFCs
 // Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
@@ -14,12 +15,12 @@ import HelloWorld from './components/HelloWorld.vue'
 @import'bootstrap/dist/css/bootstrap.css';
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 60px; */
 }
 
 </style>
