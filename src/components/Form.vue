@@ -1,31 +1,78 @@
 <template>
-  <div class="form-wrapper pb-5 my-5">
+
+
+  <div>
+
+      <div class="form-wrapper pb-5 my-5">
     <div class="d-none d-md-block">
       <Steps class="px-5 pt-5 pb-3 b-b" />
     </div>
-      <form action="post" class="search__form" @submit="getItems">
-        <div class="row px-5 ">
-      <div class="row  mt-5">
-        <div class="form-group">
+  
+    <form @submit="getItems">
+      <div class="px-5">
+        <div class="px-3 pb-4 pt-5">
+          <h5 class="text-center mb-4">Please enter your details below</h5>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="radio-box mr-5 px-3 py-2">
+              <label>
+                <input
+                  type="radio"
+                  class="option-input radio"
+                  name="example"
+                  checked
+                />
+                De heer
+              </label>
+            </div>
+            <div class="radio-box px-3 py-2">
+              <label>
+                <input type="radio" class="option-input radio" name="example" />
+                Mevrouv
+              </label>
+            </div>
+          </div>
+        </div>
 
-     
-          <input v-model="f.firstName" type="text" class="form-control" id="fname" required />
+        <div class="form-group mt-3 mb-0">
+          <input
+            v-model="f.firstName"
+            type="text"
+            class="form-control"
+            id="fname"
+            required
+          />
           <label for="fname">First Name</label>
         </div>
-        <div class="form-group">
-          <input v-model="f.lastName" type="text" class="form-control" id="lname" required />
-          <label for="lname">Last Name</label>
+        <div class="form-group mb-0">
+          <input
+            v-model="f.lastName"
+            type="text"
+            class="form-control"
+            id="lname"
+            required
+          />
+          <label for="lname mb-0">Last Name</label>
         </div>
 
-        <div class="form-group mb-2">
-          <input v-model="f.email" type="text" class="form-control" id="email" required />
+        <div class="form-group mb-0">
+          <input
+            v-model="f.email"
+            type="text"
+            class="form-control"
+            id="email"
+            required
+          />
           <label for="email">Email</label>
         </div>
 
         <label for="usr">Date of birth: </label>
         <div class="d-flex justify-content-between my-3">
           <div class="form-group w-100">
-            <select  v-model="f.dob.date" class="form-select" aria-label="Date">
+            <select
+              v-model="f.dob.date"
+              class="form-select w-100"
+              aria-label="Date"
+            >
               <option selected>Date</option>
               <option :value="n" v-for="(n, index) in 31" :key="index">
                 {{ n }}
@@ -33,7 +80,11 @@
             </select>
           </div>
           <div class="form-group w-100 mx-3">
-            <select  v-model="f.dob.month" class="form-select" aria-label="Date">
+            <select
+              v-model="f.dob.month"
+              class="form-select w-100"
+              aria-label="Date"
+            >
               <option selected>Month</option>
               <option :value="n" v-for="(n, index) in 12" :key="index">
                 {{ n }}
@@ -41,7 +92,11 @@
             </select>
           </div>
           <div class="form-group w-100">
-            <select  v-model="f.dob.year" class="form-select" aria-label="Date">
+            <select
+              v-model="f.dob.year"
+              class="form-select w-100"
+              aria-label="Date"
+            >
               <option selected>Year</option>
               <option :value="n" v-for="(n, index) in 31" :key="index">
                 {{ n }}
@@ -51,7 +106,7 @@
         </div>
 
         <button
-         @click.prevent="handlesubmit"
+          @click.prevent="handlesubmit"
           class="btn btn-primary btn-block rounded-2 r-5 btn-lg py-3 my-5"
         >
           ACCEPT T&C’S AND ENTER NOW
@@ -62,47 +117,46 @@
           Wij respecteren je privacy
         </div>
       </div>
-    </div>
-      </form>
+    </form>
+  </div>
   </div>
 </template>
 
 
 <script>
-
 import Steps from './Steps.vue'
+import Loading from './Loading.vue'
 export default {
+    emits: ["onloading"],
   components: {
     Steps,
-
+    Loading
   },
 
   data() {
     return {
       title: ' Maak kans op een<br />€1000 Waardebon!',
-       
-       f: {
-          firstName:'',
-        lastName:'',
-        email:'',
-        dob:{
-          date:'Date',
-          month:'Month',
-          year:'Year',
-        }
-       },
-        
+
+      f: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        dob: {
+          date: 'Date',
+          month: 'Month',
+          year: 'Year',
+        },
+      },
     }
   },
-  methods:{
-    handlesubmit(){
-      console.log(this.f);
-
-
-    }
+  methods: {
+    handlesubmit() {
+      this.$emit('onloading',true);
+      setTimeout(()=>{
+          this.$emit('onloading',false);
+      },2000)
+    },
   },
-
-  
 }
 </script>
 <style scoped lang="scss">
@@ -162,16 +216,87 @@ export default {
 }
 
 .form-select {
+  padding-bottom: 12px;
   option {
-    color: #0046a7;
+    color: #e9edf3;
   }
-  &::after {
-    background-image: url('../assets/images/arrow.svg') !important;
-    display: block;
-    width: 20px;
-    height: 20px;
-    color: red;
-    display: block;
+}
+
+.radio-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  height: 50px;
+  width: 100%;
+}
+
+@keyframes click-wave {
+  0% {
+    height: 40px;
+    width: 40px;
+    opacity: 0.15;
+    position: relative;
   }
+
+  100% {
+    height: 200px;
+    width: 200px;
+    margin-left: -80px;
+    margin-top: -80px;
+    opacity: 0;
+  }
+}
+
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 5px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  transition: all 0.15s ease-out 0s;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+  border: 3px solid #fff;
+}
+
+.option-input:hover {
+  background: #fff;
+}
+
+.option-input:checked {
+  background: #2680eb;
+}
+
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.25s;
+  -moz-animation: click-wave 0.25s;
+  animation: click-wave 0.25s;
+  background: #e91e63;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+  padding: auto;
+}
+
+.option-input.radio {
+  border-radius: 50%;
+}
+
+.option-input.radio::after {
+  border-radius: 50%;
 }
 </style>
