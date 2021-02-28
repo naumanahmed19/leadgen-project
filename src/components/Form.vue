@@ -1,7 +1,7 @@
 <template>
 
 
-  <div>
+  <div class="animate__animated animate__bounce">
       <div class="form-wrapper pb-5 my-5">
     <div class="d-none d-md-block">
       <Steps class="px-5 pt-5 pb-3 b-b" />

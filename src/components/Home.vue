@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="animate__animated animate__fadeIn">
     <Loading v-if="isLoading" />
     <div class="text-light vertical-center align-items-center hero">
       <div class="bg"></div>
@@ -11,7 +11,7 @@
             class="row d-flex justify-content-between pt-lg-5 align-items-center justify-content-between text-lg-center d-sm-block d-md-none mt-4"
           >
             <div class="col-9 col-lg-6">
-              <h5 class="fw-bold title" v-html="title" />
+              <h5 class="fw-bold title animate__animated animate__fadeIn" v-html="title" />
             </div>
             <div class="col-3 ">
               <img
@@ -25,9 +25,10 @@
           <div
             class="row d-flex align-items-center flex-column-reverse flex-md-row"
           >
-            <div class="col-lg-6 product-section">
+            <div class="col-lg-6 product-section  
+            ">
               <h1
-                class="fw-bold title text-center d-none d-md-block"
+                class="fw-bold title text-center d-none d-md-block "
                 v-html="title"
               />
 

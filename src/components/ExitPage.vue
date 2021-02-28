@@ -1,5 +1,5 @@
 <template>
-  <div class="exit pb-5">
+  <div class="exit pb-5 animate__animated animate__fadeIn">
     <div class="header-bg">
       <div class="container py-4 text-center">
         <div>
