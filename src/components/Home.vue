@@ -10,10 +10,10 @@
           <div
             class="row d-flex justify-content-between pt-lg-5 align-items-center justify-content-between text-lg-center d-sm-block d-md-none mt-4"
           >
-            <div class="col-8 col-lg-6">
-              <h1 class="fw-bold title" v-html="title" />
+            <div class="col-9 col-lg-6">
+              <h5 class="fw-bold title" v-html="title" />
             </div>
-            <div class="col-3">
+            <div class="col-3 ">
               <img
                 class="badge-03 img-fluid"
                 src="../assets/images/badge-12.svg"
@@ -78,7 +78,6 @@ export default {
 
 
 <style lang="scss">
-@import 'bootstrap/scss/bootstrap.scss';
 
 .bg {
   background-image: url('../assets/images/bg.jpg');
@@ -103,7 +102,9 @@ export default {
 h1 {
   font: 42px;
 }
-@include media-breakpoint-up(md) {
+
+@media (min-width: 767px) {
+  
   .hero {
     width: 100vw;
     height: 100vh;
@@ -112,7 +113,9 @@ h1 {
     align-items: center;
   }
 }
-@include media-breakpoint-down(sm) {
+
+@media (max-width: 767px) {
+  
   h1 {
     font-size: 22px;
   }

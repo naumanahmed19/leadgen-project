@@ -4,7 +4,7 @@
       <div class="container py-4 text-center">
         <div>
           <span class="text-light h1">Bedankt voor je deelname</span>
-          <img class="img-fluid ml-3" src="../assets/images/g2.svg" alt="" />
+          <img class="img-fluid ml-3 g2" src="../assets/images/g2.svg" alt="" />
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
 
         <div class="row row-eq-height">
           <div
-            class="col-md-4"
+            class="col-lg-4"
             v-for="(item, index) in itemsList1"
             :key="index"
           >
@@ -39,7 +39,7 @@
 
         <div class="row row-eq-height">
           <div
-            class="col-md-3"
+            class="col-lg-3"
             v-for="(item, index) in itemsList2"
             :key="index"
           >
@@ -122,7 +122,7 @@ export default {
   footer {
     .links {
       .nav-link {
-        color: #000 i !important;
+        color: #000 !important;
       }
     }
   }
@@ -167,6 +167,7 @@ main {
 }
 
 @media (min-width: 767px) {
+
   .heading {
     position: relative;
     .timer {
@@ -177,9 +178,12 @@ main {
     }
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+  .g2{
+    max-height: 50px;
+  }
   .h1 {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
 

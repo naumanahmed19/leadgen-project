@@ -46,13 +46,19 @@ export default {
     font-size: 0.7rem;
     margin-top: 1rem;
     bottom: 30px;
+    .nav-link{
+        color:  #fff;
+    }
     
 }
-@include media-breakpoint-up(sm) {
+
+@media (min-width: 767px) {
+  
     footer {
     position: relative;
     bottom: 0;
     margin-top: 100px;
+    
 
     }
 }

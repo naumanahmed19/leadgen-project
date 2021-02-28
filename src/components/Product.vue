@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'bootstrap/scss/bootstrap.scss';
+
 
 .box {
   .btn-rounded {

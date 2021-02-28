@@ -22,7 +22,6 @@
 </template>
 
 <style lang="scss">
-@import 'bootstrap/scss/bootstrap.scss';
 .steps {
 
   p {
@@ -51,7 +50,8 @@
       background-size: cover;
     }
   }
-    @include media-breakpoint-down(sm) {
+  
+@media (max-width: 767px) {
     color:#434343
     }
 }

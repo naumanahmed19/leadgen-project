@@ -2,18 +2,17 @@
 
 
   <div>
-
       <div class="form-wrapper pb-5 my-5">
     <div class="d-none d-md-block">
       <Steps class="px-5 pt-5 pb-3 b-b" />
     </div>
   
     <form @submit="getItems">
-      <div class="px-5">
-        <div class="px-3 pb-4 pt-5">
+      <div class="px-4">
+        <div class=" pb-4 pt-5">
           <h5 class="text-center mb-4">Please enter your details below</h5>
           <div class="d-flex justify-content-between align-items-center">
-            <div class="radio-box mr-5 px-3 py-2">
+            <div class="radio-box mr-2 px-3 py-2">
               <label>
                 <input
                   type="radio"
@@ -154,6 +153,7 @@ export default {
       this.$emit('onloading',true);
       setTimeout(()=>{
           this.$emit('onloading',false);
+          this.$router.push('exit')
       },2000)
     },
   },
@@ -173,7 +173,7 @@ export default {
   border-radius: 30px !important;
   border-color: #0046a7;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .form-control,
@@ -227,6 +227,7 @@ export default {
   border-radius: 4px;
   height: 50px;
   width: 100%;
+  font-size: 12px;
 }
 
 @keyframes click-wave {
