@@ -1,28 +1,31 @@
 <template>
   <div class="form-wrapper pb-5 my-5">
-    <div class="d-none d-sm-block d-md-block">
+    <div class="d-none d-md-block">
       <Steps class="px-5 pt-5 pb-3 b-b" />
     </div>
-    <div class="row px-5 ">
+      <form action="post" class="search__form" @submit="getItems">
+        <div class="row px-5 ">
       <div class="row  mt-5">
         <div class="form-group">
-          <input type="text" class="form-control" id="usr" required />
-          <label for="usr">First Name</label>
+
+     
+          <input v-model="f.firstName" type="text" class="form-control" id="fname" required />
+          <label for="fname">First Name</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" id="usr" required />
-          <label for="usr">Last Name</label>
+          <input v-model="f.lastName" type="text" class="form-control" id="lname" required />
+          <label for="lname">Last Name</label>
         </div>
 
         <div class="form-group mb-2">
-          <input type="text" class="form-control" id="usr" required />
-          <label for="usr">Email</label>
+          <input v-model="f.email" type="text" class="form-control" id="email" required />
+          <label for="email">Email</label>
         </div>
 
         <label for="usr">Date of birth: </label>
         <div class="d-flex justify-content-between my-3">
           <div class="form-group w-100">
-            <select class="form-select" aria-label="Date">
+            <select  v-model="f.dob.date" class="form-select" aria-label="Date">
               <option selected>Date</option>
               <option :value="n" v-for="(n, index) in 31" :key="index">
                 {{ n }}
@@ -30,7 +33,7 @@
             </select>
           </div>
           <div class="form-group w-100 mx-3">
-            <select class="form-select" aria-label="Date">
+            <select  v-model="f.dob.month" class="form-select" aria-label="Date">
               <option selected>Month</option>
               <option :value="n" v-for="(n, index) in 12" :key="index">
                 {{ n }}
@@ -38,7 +41,7 @@
             </select>
           </div>
           <div class="form-group w-100">
-            <select class="form-select" aria-label="Date">
+            <select  v-model="f.dob.year" class="form-select" aria-label="Date">
               <option selected>Year</option>
               <option :value="n" v-for="(n, index) in 31" :key="index">
                 {{ n }}
@@ -48,6 +51,7 @@
         </div>
 
         <button
+         @click.prevent="handlesubmit"
           class="btn btn-primary btn-block rounded-2 r-5 btn-lg py-3 my-5"
         >
           ACCEPT T&C’S AND ENTER NOW
@@ -59,14 +63,47 @@
         </div>
       </div>
     </div>
+      </form>
   </div>
 </template>
 
 
-<script setup>
-import { defineProps, reactive } from 'vue'
-import Footer from './Footer.vue'
+<script>
+
 import Steps from './Steps.vue'
+export default {
+  components: {
+    Steps,
+
+  },
+
+  data() {
+    return {
+      title: ' Maak kans op een<br />€1000 Waardebon!',
+       
+       f: {
+          firstName:'',
+        lastName:'',
+        email:'',
+        dob:{
+          date:'Date',
+          month:'Month',
+          year:'Year',
+        }
+       },
+        
+    }
+  },
+  methods:{
+    handlesubmit(){
+      console.log(this.f);
+
+
+    }
+  },
+
+  
+}
 </script>
 <style scoped lang="scss">
 .form-wrapper {
@@ -116,12 +153,12 @@ import Steps from './Steps.vue'
 }
 
 .form-control:focus ~ label {
-  bottom: 55px;
+  bottom: 60px;
   padding: 0;
 }
 
 .form-control:valid ~ label {
-  bottom: 55px;
+  bottom: 60px;
 }
 
 .form-select {
