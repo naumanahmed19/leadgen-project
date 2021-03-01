@@ -7,7 +7,10 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "babel-eslint": "^10.1.0",
     "bootstrap": "^4.0.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
     "vue": "^3.0.5",
     "vue-router": "^4.0.4",
     "vue-spinner": "^1.0.4"
@@ -15,11 +18,12 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.1.4",
     "@vue/compiler-sfc": "^3.0.5",
-    "eslint": "^7.20.0",
+    "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^7.6.0",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.2.1",
+    "eslint-config-airbnb-base": "14.1.0",
+    "eslint-plugin-import": "2.x",
     "sass": "^1.32.8",
     "vite": "^2.0.1"
   }

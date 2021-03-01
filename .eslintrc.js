@@ -1,14 +1,14 @@
 module.exports = {
-    root: true,
-    env: {
-      node: true,
-    },
-    extends: [
-      'plugin:vue/vue3-recommended',
-      'eslint:recommended',
-      'prettier',
-      'prettier/vue',
-      '@vue/typescript',
-    ],
-    plugins: ['vue'],
-}
+  extends: [
+    'plugin:vue/recommended',
+    'airbnb-base',
+  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module',
+  },
+};

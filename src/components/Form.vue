@@ -1,136 +1,160 @@
 <template>
-
-
   <div class="animate__animated animate__bounce">
-      <div class="form-wrapper pb-5 my-5">
-    <div class="d-none d-md-block">
-      <Steps class="px-5 pt-5 pb-3 b-b" />
-    </div>
-  
-    <form @submit="getItems">
-      <div class="px-4">
-        <div class=" pb-4 pt-5">
-          <h5 class="text-center mb-4">Please enter your details below</h5>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="radio-box mr-2 px-3 py-2">
-              <label>
-                <input
-                  type="radio"
-                  class="option-input radio"
-                  name="example"
-                  checked
-                />
-                De heer
-              </label>
-            </div>
-            <div class="radio-box px-3 py-2">
-              <label>
-                <input type="radio" class="option-input radio" name="example" />
-                Mevrouv
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group mt-3 mb-0">
-          <input
-            v-model="f.firstName"
-            type="text"
-            class="form-control"
-            id="fname"
-            required
-          />
-          <label for="fname">First Name</label>
-        </div>
-        <div class="form-group mb-0">
-          <input
-            v-model="f.lastName"
-            type="text"
-            class="form-control"
-            id="lname"
-            required
-          />
-          <label for="lname mb-0">Last Name</label>
-        </div>
-
-        <div class="form-group mb-0">
-          <input
-            v-model="f.email"
-            type="text"
-            class="form-control"
-            id="email"
-            required
-          />
-          <label for="email">Email</label>
-        </div>
-
-        <label for="usr">Date of birth: </label>
-        <div class="d-flex justify-content-between my-3">
-          <div class="form-group w-100">
-            <select
-              v-model="f.dob.date"
-              class="form-select w-100"
-              aria-label="Date"
-            >
-              <option selected>Date</option>
-              <option :value="n" v-for="(n, index) in 31" :key="index">
-                {{ n }}
-              </option>
-            </select>
-          </div>
-          <div class="form-group w-100 mx-3">
-            <select
-              v-model="f.dob.month"
-              class="form-select w-100"
-              aria-label="Date"
-            >
-              <option selected>Month</option>
-              <option :value="n" v-for="(n, index) in 12" :key="index">
-                {{ n }}
-              </option>
-            </select>
-          </div>
-          <div class="form-group w-100">
-            <select
-              v-model="f.dob.year"
-              class="form-select w-100"
-              aria-label="Date"
-            >
-              <option selected>Year</option>
-              <option :value="n" v-for="(n, index) in 31" :key="index">
-                {{ n }}
-              </option>
-            </select>
-          </div>
-        </div>
-
-        <button
-          @click.prevent="handlesubmit"
-          class="btn btn-primary btn-block rounded-2 r-5 btn-lg py-3 my-5"
-        >
-          ACCEPT T&C’S AND ENTER NOW
-        </button>
-
-        <div class="text-center">
-          <img src="../assets/images/verify.svg" alt="" />
-          Wij respecteren je privacy
-        </div>
+    <div class="form-wrapper pb-5 my-5">
+      <div class="d-none d-md-block">
+        <Steps class="px-5 pt-5 pb-3 b-b" />
       </div>
-    </form>
-  </div>
+      <form @submit="getItems">
+        <div class="px-4">
+          <div class=" pb-4 pt-5">
+            <h5 class="text-center mb-4">
+              Please enter your details below
+            </h5>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="radio-box mr-2 px-3 py-2">
+                <label>
+                  <input
+                    type="radio"
+                    class="option-input radio"
+                    name="example"
+                    checked
+                  >
+                  De heer
+                </label>
+              </div>
+              <div class="radio-box px-3 py-2">
+                <label>
+                  <input
+                    type="radio"
+                    class="option-input radio"
+                    name="example"
+                  >
+                  Mevrouv
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group mt-3 mb-0">
+            <input
+              id="fname"
+              v-model="f.firstName"
+              type="text"
+              class="form-control"
+              required
+            >
+            <label for="fname">First Name</label>
+          </div>
+          <div class="form-group mb-0">
+            <input
+              id="lname"
+              v-model="f.lastName"
+              type="text"
+              class="form-control"
+              required
+            >
+            <label for="lname mb-0">Last Name</label>
+          </div>
+
+          <div class="form-group mb-0">
+            <input
+              id="email"
+              v-model="f.email"
+              type="text"
+              class="form-control"
+              required
+            >
+            <label for="email">Email</label>
+          </div>
+
+          <label for="usr">Date of birth: </label>
+          <div class="d-flex justify-content-between my-3">
+            <div class="form-group w-100">
+              <select
+                v-model="f.dob.date"
+                class="form-select w-100"
+                aria-label="Date"
+              >
+                <option selected>
+                  Date
+                </option>
+                <option
+                  v-for="(n, index) in 31"
+                  :key="index"
+                  :value="n"
+                >
+                  {{ n }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group w-100 mx-3">
+              <select
+                v-model="f.dob.month"
+                class="form-select w-100"
+                aria-label="Date"
+              >
+                <option selected>
+                  Month
+                </option>
+                <option
+                  v-for="(n, index) in 12"
+                  :key="index"
+                  :value="n"
+                >
+                  {{ n }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group w-100">
+              <select
+                v-model="f.dob.year"
+                class="form-select w-100"
+                aria-label="Date"
+              >
+                <option selected>
+                  Year
+                </option>
+                <option
+                  v-for="(n, index) in 31"
+                  :key="index"
+                  :value="n"
+                >
+                  {{ n }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <button
+            class="btn btn-primary btn-block rounded-2 r-5 btn-lg py-3 my-5"
+            @click.prevent="handlesubmit"
+          >
+            ACCEPT T&C’S AND ENTER NOW
+          </button>
+
+          <div class="text-center">
+            <img
+              src="../assets/images/verify.svg"
+              alt=""
+            >
+            Wij respecteren je privacy
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
-
 <script>
-import Steps from './Steps.vue'
-import Loading from './Loading.vue'
+import Steps from './Steps.vue';
+import Loading from './Loading.vue';
+
 export default {
-    emits: ["onloading"],
   components: {
     Steps,
-    Loading
+    Loading,
   },
+  emits: ['onloading'],
 
   data() {
     return {
@@ -146,18 +170,18 @@ export default {
           year: 'Year',
         },
       },
-    }
+    };
   },
   methods: {
     handlesubmit() {
-      this.$emit('onloading',true);
-      setTimeout(()=>{
-          this.$emit('onloading',false);
-          this.$router.push('exit')
-      },2000)
+      this.$emit('onloading', true);
+      setTimeout(() => {
+        this.$emit('onloading', false);
+        this.$router.push('exit');
+      }, 2000);
     },
   },
-}
+};
 </script>
 <style scoped lang="scss">
 .form-wrapper {
