@@ -34,18 +34,21 @@
     display: block;
     background: #fff;
     border-radius: 50%;
-    line-height: 40px;
+    line-height: 43px;
     color: #2b58bf;
     margin: 0 auto 10px;
-    border: 5px solid #fff;
+    border: 3px solid #fff;
     font-weight: 700;
   }
   .active-step {
     color: #2b58bf;
+    @media (min-width: 767px) {
+    color:#fff
+    }
+
     .number {
       color: #fff;
       background-image: url('../assets/images/active.svg');
-      background: 100% 100%;
       background-repeat: no-repeat;
       background-size: cover;
     }

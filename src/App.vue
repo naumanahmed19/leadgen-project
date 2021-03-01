@@ -19,8 +19,9 @@ import Home from './components/Home.vue'
   font-family: 'Poppins', sans-serif;
 }
 .wrapper {
-  width: 100%;
+
   min-height: 100vh;
+  overflow-x: hidden;
 }
 .fade-enter-active,
 .fade-leave-active {
