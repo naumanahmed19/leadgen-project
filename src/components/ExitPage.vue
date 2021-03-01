@@ -1,10 +1,10 @@
 <template>
   <div class="exit pb-5 animate__animated animate__fadeIn">
     <div class="header-bg">
-      <div class="container py-4 text-center">
+      <div class="container py-4 text-center ">
         <div>
-          <span class="text-light h1">Bedankt voor je deelname</span>
-          <img class="img-fluid ml-3 g2" src="../assets/images/g2.svg" alt="" />
+          <span class="text-light h1 animate__animated animate__backInDown">Bedankt voor je deelname</span>
+          <img class="img-fluid ml-3 g2 animate__animated animate__tada" src="../assets/images/g2.svg" alt="" />
         </div>
       </div>
     </div>
@@ -18,8 +18,7 @@
               class="imr-2 rotate"
               src="../assets/icons/icon-progress.svg"
               alt=""
-            />
-            TJID OVER: 06:25:38</span
+            />TJID OVER: 06:25:38</span
           >
         </div>
 
@@ -128,10 +127,8 @@ export default {
   }
 }
 
-
 main {
   background: #fefaf6;
-
   .title-bar {
     background: #f44336;
     color: #fff;
